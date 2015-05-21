@@ -13,6 +13,11 @@ import org.apache.spark.SparkContext._
 
 import scala.util.Try
 
+/*
+ *  Movie Recommendation based on Movielens dataset inspired by Scalding implementation
+ *  http://blog.echen.me/2012/02/09/movie-recommendations-and-more-via-mapreduce-and-scalding/
+ */
+
 class MovieCFSparkJob extends XPatternsScalaSparkJob {
 
   override def validate(sc: SparkContext, config: Config): SparkJobValidation = {

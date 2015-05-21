@@ -1,7 +1,8 @@
-package com.xpatterns.spark.core.scala
+package com.xpatterns.spark.api.scala
 
 import api.{SparkJobInvalid, SparkJobValid, SparkJobValidation}
 import com.typesafe.config.Config
+import com.xpatterns.spark.core.scala.XPatternsScalaSparkJob
 import com.xpatterns.spark.core.java.instrumentation.XPatternsInstrumentation
 import com.xpatterns.spark.core.java.instrumentation.logger.XPatternsLogger
 import org.apache.spark.SparkContext

@@ -1,10 +1,12 @@
-package com.xpatterns.spark.core.java;
+package com.xpatterns.spark.api.java;
 
 import com.typesafe.config.Config;
+import com.xpatterns.spark.core.java.XPatternsJavaSparkJob;
 import com.xpatterns.spark.core.java.instrumentation.XPatternsInstrumentation;
 import com.xpatterns.spark.core.java.instrumentation.logger.XPatternsLogger;
 import com.xpatterns.spark.core.java.validation.XPatternsJobValid;
 import com.xpatterns.spark.core.java.validation.XPatternsJobValidation;
+
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.FlatMapFunction;

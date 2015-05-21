@@ -1,11 +1,14 @@
-package com.xpatterns.spark.core.java;
+package com.xpatterns.spark.api.java;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigValue;
+import com.xpatterns.spark.core.java.XPatternsJavaSparkJob;
+import com.xpatterns.spark.core.java.XPatternsSparkJobResourceManager;
 import com.xpatterns.spark.core.java.instrumentation.XPatternsInstrumentation;
 import com.xpatterns.spark.core.java.instrumentation.logger.XPatternsLogger;
 import com.xpatterns.spark.core.java.validation.XPatternsJobValid;
 import com.xpatterns.spark.core.java.validation.XPatternsJobValidation;
+
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;

@@ -1,141 +1,178 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.xpatterns</groupId>
-    <artifactId>xpatterns-spark-api-enron</artifactId>
-    <version>1.0</version>
-    <name>xPatterns Spark Demo - Enron</name>
-    <inceptionYear>2014</inceptionYear>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.xpatterns</groupId>
+	<artifactId>xpatterns-spark-api-enron</artifactId>
+	<version>1.0</version>
+	<name>xPatterns Spark Demo - Enron</name>
+	<inceptionYear>2014</inceptionYear>
 
-    <url>https://github.com/Atigeo/xpatterns-spark-demo</url>
+	<url>https://github.com/Atigeo/xpatterns-spark-demo</url>
 
-    <description>
-        Contains the SparkJob implementation in Java and Scala.
+	<description>
+        Spark job that transforms enron emails to parquet format.  
     </description>
 
-    <licenses>
-        <license>
-            <name>The Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
-    <developers>
-        <developer>
-            <name>Radu Moldovan</name>
-            <email>radu.adrian.moldovan@gmail.com</email>
-            <organization>Atigeo</organization>
-            <organizationUrl>http://www.atigeo.com</organizationUrl>
-        </developer>
-    </developers>
-    <scm>
-        <connection>scm:git:git@github.com:Atigeo/xpatterns-spark-api.git</connection>
-        <developerConnection>scm:git:git@github.com:Atigeo/xpatterns-spark-api.git</developerConnection>
-        <url>git@github.com:Atigeo/xpatterns-spark-api.git</url>
-    </scm>
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>Andrei Avramescu</name>
+			<email>andrei.avramescu@yahoo.com</email>
+			<organization>Atigeo</organization>
+			<organizationUrl>http://www.atigeo.com</organizationUrl>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:git@github.com:Atigeo/xpatterns-spark-api.git</connection>
+		<developerConnection>scm:git:git@github.com:Atigeo/xpatterns-spark-api.git</developerConnection>
+		<url>git@github.com:Atigeo/xpatterns-spark-api.git</url>
+	</scm>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 
 
-    <repositories>
-        <repository>
-            <id>mvnrepository</id>
-            <url>http://repo1.maven.org/maven2</url>
-        </repository>
+	<repositories>
+		<repository>
+			<id>mvnrepository</id>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
 
-        <repository>
-            <id>cloudera-repo-releases</id>
-            <url>https://repository.cloudera.com/artifactory/repo/</url>
-        </repository>
-    </repositories>
+		<repository>
+			<id>cloudera-repo-releases</id>
+			<url>https://repository.cloudera.com/artifactory/repo/</url>
+		</repository>
+	</repositories>
 
-    <properties>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
-        <encoding>UTF-8</encoding>
-        <scala.tools.version>2.10</scala.tools.version>
-        <scala.version>2.10.3</scala.version>
-    </properties>
+	<properties>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<encoding>UTF-8</encoding>
+		<scala.tools.version>2.10</scala.tools.version>
+		<scala.version>2.10.3</scala.version>
+	</properties>
 
-    <dependencies>
+	<dependencies>
 
-        <!-- xPatterns framework dependecies-->
-        <dependency>
-            <groupId>com.xpatterns</groupId>
-            <artifactId>xpatterns-spark-api</artifactId>
-            <version>3.0.0-cm5-spark110-cdh520</version>
-        </dependency>
+		<!-- xPatterns framework dependecies -->
+		<dependency>
+			<groupId>com.xpatterns</groupId>
+			<artifactId>xpatterns-spark-api</artifactId>
+			<version>3.0.0-cm5-spark110-cdh520</version>
+		</dependency>
 
-        <!-- Test -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>com.xpatterns.spark.parquet</groupId>
+			<artifactId>spark-parquet-utility</artifactId>
+			<version>1.0.0-spark1.1.0</version>
+		</dependency>
 
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpmime</artifactId>
-            <version>4.3.4</version>
-        </dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.3.4</version>
+		</dependency>
 
-    </dependencies>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
 
-    <build>
-        <finalName>${project.artifactId}</finalName>
 
-        <sourceDirectory>src/main</sourceDirectory>
-        <resources>
-            <resource>
-                <directory>src/main</directory>
-                <filtering>true</filtering>
-            </resource>
-        </resources>
+	</dependencies>
 
-        <plugins>
+	<build>
+		<finalName>${project.artifactId}</finalName>
 
-            <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>scala-maven-plugin</artifactId>
-                <version>3.2.0</version>
-                <executions>
-                    <execution>
-                        <id>scala-compile-first</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>add-source</goal>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>scala-test-compile</id>
-                        <phase>process-test-resources</phase>
-                        <goals>
-                            <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>doc</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>doc-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+		<sourceDirectory>src/main</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 
-        </plugins>
+		<plugins>
 
-    </build>
+			<plugin>
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>scala-maven-plugin</artifactId>
+				<version>3.2.0</version>
+				<executions>
+					<execution>
+						<id>scala-compile-first</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>add-source</goal>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>scala-test-compile</id>
+						<phase>process-test-resources</phase>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>doc</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>doc-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<filters>
+
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<exclude>META-INF/*.SF</exclude>
+										<exclude>META-INF/*.DSA</exclude>
+										<exclude>META-INF/*.RSA</exclude>
+									</excludes>
+								</filter>
+							</filters>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>com.xpatterns.enron.app.EmailIngestion</mainClass>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+	</build>
 
 
 </project>
