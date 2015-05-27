@@ -58,8 +58,8 @@
     </repositories>
 
     <properties>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
         <encoding>UTF-8</encoding>
         <scala.tools.version>2.10</scala.tools.version>
         <scala.version>2.10.3</scala.version>
@@ -71,7 +71,7 @@
         <dependency>
             <groupId>com.xpatterns</groupId>
             <artifactId>xpatterns-spark-api</artifactId>
-            <version>3.0.0-cm5-spark110-cdh520</version>
+            <version>3.0.0-cm5-spark131-cdh541</version>
         </dependency>
 
         <!-- Test -->

@@ -59,7 +59,7 @@ class EmailIngestion extends XPatternsScalaSparkJob with Serializable {
     }
 
     val errorsAcc = sc.accumulableCollection(HashSet[String]())
-    val fileAcc = sc.accumulable(0L)
+    val fileAcc = sc.accumulator(0L)
 
     val mailsList = getFilesFromHdfs(config.inputPath, inputFS)
     val pathRdd = sc.parallelize(mailsList, config.parallelizeFactor)
@@ -83,7 +83,7 @@ class EmailIngestion extends XPatternsScalaSparkJob with Serializable {
           val msg = Message.readEml(stream)
 
           list += msg
-          fileAcc.+=(1)
+          fileAcc.+=(1L)
           if (msg.attachments.size > 0)
             attachmentMetric.incrementProcessedItemsBy(msg.attachments.size, System.currentTimeMillis() - initialTime)
 
